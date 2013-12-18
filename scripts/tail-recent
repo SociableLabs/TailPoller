@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use SociableLabs::TailPoller;
+use Getopt::Long;
+
+my $prefix = undef;
+
+my $optgetter = GetOptions ( 
+    'prefix=s' => \$prefix 
+);
+
+while ( my $filename = shift( @ARGV ) ) {
+    my $data_ref = get_latest_lines( $filename, $prefix, 1 );
+}
